@@ -33,7 +33,7 @@ public class DiegoVarela_Lab2 {
             int enter = entrada.nextInt();
             switch (enter) {
                 case 1:
-                    if (in = true) {
+                    if (in ==true) {
                         System.out.println("1) Crear Casas");
                         System.out.println("2) Listar Casas");
                         System.out.println("3) Modificar Casas");
@@ -214,7 +214,7 @@ public class DiegoVarela_Lab2 {
                     }
                     break;
                 case 2:
-                    if (in = true) {
+                    if (in == true) {
                          System.out.println("Casas en espera de construccion");
                         for (Casa casa : espera) {
                             System.out.println(casa);
