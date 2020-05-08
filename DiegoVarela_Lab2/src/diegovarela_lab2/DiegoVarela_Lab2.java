@@ -207,6 +207,54 @@ public class DiegoVarela_Lab2 {
                     }
                     break;
                 case 2:
+                    for (Casa c : casas) {
+                        System.out.println(c);
+                    }
+                    System.out.println("Ingrese la posiocion de la casa que desea modificar el estado:");
+                    int man = entrada.nextInt();
+                    int contcons = 0;
+                    int contdem = 0;
+                    for (Casa casa : casas) {
+                        if (casa.getEstado().equals("Construccion")) {
+                            contcons++;
+                        }
+                        if (casa.getEstado().equals("Demolicion")) {
+                            contdem++;
+                        }
+                    }
+                    if (casas.get(man).getEstado().equals("Demolicion")) {
+                        System.out.println("Lo sentimos no puede cambiar el estado");
+                    } else if (casas.get(man).getEstado().equals("Lista")) {
+                        if (contdem < 3) {
+                            casas.get(man).setEstado("Demolicion");
+                            System.out.println("Su casa ha sido movida de lista a demolicion");
+                        } else {
+                            System.out.println("Lo siento no se puede modificar el estado porque Demolicion esta al maximo");
+                        }
+                    } else if (casas.get(man).getEstado().equals("Espera")) {
+                        if (contcons < 5) {
+                            casas.get(man).setEstado("Construccion");
+                            System.out.println("Su casa ha sido movida de espera a construccion");
+                        } else {
+                            System.out.println("Lo siento no se puede modificar el estado porque construccion esta al maximo");
+                        }
+                    } else if (casas.get(man).getEstado().equals("Construccion")) {
+                        System.out.println("¿A que lo desea cambiar? ");
+                        System.out.println("1) Lista");
+                        System.out.println("2) Espera");
+                        int op = entrada.nextInt();
+                        switch (op) {
+                            case 1:
+                                casas.get(man).setEstado("Lista");
+                                System.out.println("Su casa ha sido movida de construccion a lista");
+                                break;
+                            case 2:
+                                casas.get(man).setEstado("Espera");
+                                System.out.println("Su casa ha sido movida de construccion a espera en construccion");
+                                break;
+                        }
+                    }
+
                     break;
                 case 3:
                     System.out.println("Ingrese su usuario:");
