@@ -215,20 +215,20 @@ public class DiegoVarela_Lab2 {
                     break;
                 case 2:
                     if (in = true) {
+                         System.out.println("Casas en espera de construccion");
                         for (Casa casa : espera) {
-                            System.out.println("Casas en espera de construccion");
                             System.out.println(casa);
                         }
+                           System.out.println("Casas que estan listas");
                         for (Casa casa : listas) {
-                            System.out.println("Casas que estan listas");
                             System.out.println(casa);
                         }
+                        System.out.println("Casas en demolicion");
                         for (Casa casa : demolicion) {
-                            System.out.println("Casas en demolicion");
                             System.out.println(casa);
                         }
+                         System.out.println("Casas en construccion");
                         for (Casa casa : construccion) {
-                            System.out.println("Casas en construccion");
                             System.out.println(casa);
                         }
                         int contcons = 0;
@@ -254,21 +254,20 @@ public class DiegoVarela_Lab2 {
                             case 1:
                                 if (contdem < 3) {
                                     for (Casa casa : listas) {
-                                        System.out.println("Casas que estan listas");
                                         System.out.println(casa);
                                     }
                                     System.out.println("Ingrese que casa desea modificar el estado ");
-                                    int e = entrada.nextInt();
-                                    demolicion.add(listas.get(e));
-                                    listas.remove(e);
+                                    int en = entrada.nextInt();
+                                    listas.get(en).setEstado("Demolicion");
+                                    demolicion.add(listas.get(en));
+                                    listas.remove(en);
                                     System.out.println("Su casa ha sido movida de lista a demolicion");
                                 } else {
                                     System.out.println("Lo siento no se puede modificar el estado porque Demolicion esta al maximo");
                                 }
                                 break;
                             case 2:
-                                for (Casa casa : construccion) {
-                                    System.out.println("Casas en construccion");
+                                for (Casa casa : construccion) {                                   
                                     System.out.println(casa);
                                 }
                                 System.out.println("Ingrese que casa desea modificar el estado ");
@@ -279,11 +278,13 @@ public class DiegoVarela_Lab2 {
                                 int op = entrada.nextInt();
                                 switch (op) {
                                     case 1:
+                                        construccion.get(e).setEstado("Lista");
                                         listas.add(construccion.get(e));
                                         construccion.remove(e);
                                         System.out.println("Su casa ha sido movida de construccion a lista");
                                         break;
                                     case 2:
+                                          construccion.get(e).setEstado("Espera");
                                         espera.add(construccion.get(e));
                                         construccion.remove(e);
                                         System.out.println("Su casa ha sido movida de construccion a espera en construccion");
@@ -293,12 +294,12 @@ public class DiegoVarela_Lab2 {
                                 break;
                             case 3:
                                 for (Casa casa : espera) {
-                                    System.out.println("Casas en espera de construccion");
                                     System.out.println(casa);
                                 }
                                 System.out.println("Ingrese que casa desea modificar el estado ");
                                 int ep = entrada.nextInt();
                                 if (contcons < 5) {
+                                    espera.get(ep).setEstado("Construccion");
                                     construccion.add(espera.get(ep));
                                     espera.remove(ep);
                                     System.out.println("Su casa ha sido movida de espera a construccion");
