@@ -20,10 +20,9 @@ public class Casa {
     private String dueño;
     private String estado;
     private String ingeniero;
-    private ArrayList construccion=new ArrayList();
-    private ArrayList lista=new ArrayList();
-    private ArrayList espera=new ArrayList();
-    private ArrayList demolicion=new ArrayList();
+   
+    public Casa() {
+    }
 
     public Casa(int numcasa, int numblock, String color, double ancho, double largo, String comprada, int numpiso, int numbaño, int numcuarto, String dueño, String estado, String ingeniero) {
         this.numcasa = numcasa;
@@ -135,39 +134,7 @@ public class Casa {
     public void setIngeniero(String ingeniero) {
         this.ingeniero = ingeniero;
     }
-
-    public ArrayList getConstruccion() {
-        return construccion;
-    }
-
-    public void setConstruccion(ArrayList construccion) {
-        this.construccion = construccion;
-    }
-
-    public ArrayList getLista() {
-        return lista;
-    }
-
-    public void setLista(ArrayList lista) {
-        this.lista = lista;
-    }
-
-    public ArrayList getEspera() {
-        return espera;
-    }
-
-    public void setEspera(ArrayList espera) {
-        this.espera = espera;
-    }
-
-    public ArrayList getDemolicion() {
-        return demolicion;
-    }
-
-    public void setDemolicion(ArrayList demolicion) {
-        this.demolicion = demolicion;
-    }
-
+    
     @Override
     public String toString() {
         return "Casa{" + "comprada=" + comprada + ", due\u00f1o=" + dueño + ", estado=" + estado + ", ingeniero=" + ingeniero + '}';

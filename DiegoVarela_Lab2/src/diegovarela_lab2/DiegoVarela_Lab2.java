@@ -22,10 +22,11 @@ public class DiegoVarela_Lab2 {
         char resp = 's';
 
         while (resp == 's') {
-            System.out.println("Registro de casas");
-            System.out.println("Manejo de estados");
-            System.out.println("Log in");
-            System.out.println("Salir");
+            System.out.println("1) Registro de casas");
+            System.out.println("2) Manejo de estados");
+            System.out.println("3) Log in");
+            System.out.println("4) Salir");
+            System.out.println("Ingrese la opcion que desea:");
             int enter = entrada.nextInt();
             switch (enter) {
                 case 1:
@@ -63,9 +64,51 @@ public class DiegoVarela_Lab2 {
                                 }
                                 System.out.println("Ingrese el nombre del ingeniero a cargo:");
                                 String ing = entrada.next();
-                                System.out.println("Ingrese el estado de la casa(Construccion,Lista,Espera,Demolicion):");
-                                String estado = entrada.next();
-                                casas.add(new Casa(numcasa, numbloque, col, anc, lar, comp, numpiso, numb, numcua, dueño, estado, ing));
+                                System.out.println("Ingrese el estado de la casa:");
+                                String estado = "";
+                                int contcons = 0;
+                                int contdem = 0;
+                                for (Casa casa : casas) {
+                                    if (casa.getEstado().equals("Construccion")) {
+                                        contcons++;
+                                    }
+                                    if (casa.getEstado().equals("Demolicion")) {
+                                        contdem++;
+                                    }
+                                }
+                                System.out.println("1) Lista");
+                                System.out.println("2) Construccion");
+                                System.out.println("3) Espera");
+                                System.out.println("4) Demolicion");
+                                System.out.println("Ingrese la opcion que desea");
+                                int ente = entrada.nextInt();
+                                switch (ente) {
+                                    case 1:
+                                        estado = "Lista";
+                                        casas.add(new Casa(numcasa, numbloque, col, anc, lar, comp, numpiso, numb, numcua, dueño, estado, ing));
+                                        break;
+                                    case 2:
+                                        if (contcons < 5) {
+                                            estado = "Construccion";
+                                            casas.add(new Casa(numcasa, numbloque, col, anc, lar, comp, numpiso, numb, numcua, dueño, estado, ing));
+                                        } else {
+                                            System.out.println("Ha alcanzado el limite de casas en construccion");
+                                        }
+                                        break;
+                                    case 3:
+                                        estado = "Espera";
+                                        casas.add(new Casa(numcasa, numbloque, col, anc, lar, comp, numpiso, numb, numcua, dueño, estado, ing));
+                                        break;
+                                    case 4:
+                                        if (contdem < 3) {
+                                            estado = "Demolicion";
+                                            casas.add(new Casa(numcasa, numbloque, col, anc, lar, comp, numpiso, numb, numcua, dueño, estado, ing));
+                                        } else {
+                                            System.out.println("Ha alcanzado el limite de casas en demolicion");
+                                        }
+                                        break;
+                                }
+
                                 break;
                             case 2:
                                 for (Casa c : casas) {
@@ -139,18 +182,24 @@ public class DiegoVarela_Lab2 {
                                         break;
                                     case 10:
                                         System.out.println("Ingrese el nombre del dueño:");
-                                        String dueño2= entrada.next();
-                                         casas.get(mod).setDueño(dueño2);
+                                        String dueño2 = entrada.next();
+                                        casas.get(mod).setDueño(dueño2);
                                         break;
                                     case 11:
                                         System.out.println("Ingrese el nombre del ingeniero a cargo:");
                                         String ing2 = entrada.next();
-                                         casas.get(mod).setIngeniero(ing2);
+                                        casas.get(mod).setIngeniero(ing2);
                                         break;
 
                                 }
                                 break;
                             case 4:
+                                for (Casa c : casas) {
+                                    System.out.println(c);
+                                }
+                                System.out.println("Ingrese la posiocion de la casa que desea eliminar:");
+                                int el = entrada.nextInt();
+                                casas.remove(el);
                                 break;
                         }
                     } else {
