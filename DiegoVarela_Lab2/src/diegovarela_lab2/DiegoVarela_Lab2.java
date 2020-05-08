@@ -54,16 +54,18 @@ public class DiegoVarela_Lab2 {
                                 int numpiso = entrada.nextInt();
                                 System.out.println("Ingrese el numero de baños:");
                                 int numb = entrada.nextInt();
+                                System.out.println("Ingrese el numero de cuartos:");
+                                int numcua = entrada.nextInt();
                                 String dueño = "";
                                 if (comp.equals("Si") || comp.equals("si")) {
                                     System.out.println("Ingrese el nombre del dueño:");
                                     dueño = entrada.next();
                                 }
-                                System.out.println("Ingrese el nkombre del inegienero a cargo:");
+                                System.out.println("Ingrese el nombre del ingeniero a cargo:");
                                 String ing = entrada.next();
-                                System.out.println("Ingrese el estado de la casa(solo minusculas):");
+                                System.out.println("Ingrese el estado de la casa(Construccion,Lista,Espera,Demolicion):");
                                 String estado = entrada.next();
-                                casas.add(new Casa(numcasa, numbloque, col, anc, lar, comp, numpiso, numb, numcasa, dueño, estado, ing));
+                                casas.add(new Casa(numcasa, numbloque, col, anc, lar, comp, numpiso, numb, numcua, dueño, estado, ing));
                                 break;
                             case 2:
                                 for (Casa c : casas) {
@@ -87,29 +89,63 @@ public class DiegoVarela_Lab2 {
                                 System.out.println("8) Numero de baños");
                                 System.out.println("9) Numero de cuartos");
                                 System.out.println("10) El nombre del dueño");
-                                System.out.println("11) Ingeniero a crago");
-                                switch () {
+                                System.out.println("11) Ingeniero a cargo");
+                                int mo = entrada.nextInt();
+                                switch (mo) {
                                     case 1:
+                                        System.out.println("Ingrese el numero de casa:");
+                                        int numcasa2 = entrada.nextInt();
+                                        casas.get(mod).setNumcasa(numcasa2);
                                         break;
                                     case 2:
+                                        System.out.println("Ingrese el numero de bloque:");
+                                        int numbloque2 = entrada.nextInt();
+                                        casas.get(mod).setNumblock(numbloque2);
                                         break;
                                     case 3:
+                                        System.out.println("Ingrese el color de la casa:");
+                                        String col2 = entrada.next();
+                                        casas.get(mod).setColor(col2);
                                         break;
                                     case 4:
+                                        System.out.println("Ingrese el ancho de la casa:");
+                                        double anc2 = entrada.nextDouble();
+                                        casas.get(mod).setAncho(anc2);
                                         break;
                                     case 5:
+                                        System.out.println("Ingrese el largo de la casa:");
+                                        double lar2 = entrada.nextDouble();
+                                        casas.get(mod).setLargo(lar2);
                                         break;
                                     case 6:
+                                        System.out.println("Ingrese si ya fue comprada(Si o no):");
+                                        String comp2 = entrada.next();
+                                        casas.get(mod).setComprada(comp2);
                                         break;
                                     case 7:
+                                        System.out.println("Ingrese el numero de pisos:");
+                                        int numpiso2 = entrada.nextInt();
+                                        casas.get(mod).setNumpiso(numpiso2);
                                         break;
                                     case 8:
+                                        System.out.println("Ingrese el numero de baños:");
+                                        int numb2 = entrada.nextInt();
+                                        casas.get(mod).setNumbaño(numb2);
                                         break;
                                     case 9:
+                                        System.out.println("Ingrese el numero de cuartos:");
+                                        int numcua2 = entrada.nextInt();
+                                        casas.get(mod).setNumcuarto(numcua2);
                                         break;
                                     case 10:
+                                        System.out.println("Ingrese el nombre del dueño:");
+                                        String dueño2= entrada.next();
+                                         casas.get(mod).setDueño(dueño2);
                                         break;
                                     case 11:
+                                        System.out.println("Ingrese el nombre del ingeniero a cargo:");
+                                        String ing2 = entrada.next();
+                                         casas.get(mod).setIngeniero(ing2);
                                         break;
 
                                 }
